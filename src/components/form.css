@@ -1,0 +1,9 @@
+.user-details-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.edit-here{
+    text-decoration: underline;
+    color: aqua;
+}
