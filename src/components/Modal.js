@@ -16,10 +16,21 @@ import {
 } from '@mui/material';
 import FilterListIcon from '@mui/icons-material/FilterList';
 
+import RangeSlider from './SliderComponent';
+import { Divider } from '@mui/material';
+import { StackIconPopover } from './StackIconComponent';
+
 const FilterPopover = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  
   const [deviceStatus, setDeviceStatus] = useState('');
   const [radioValue, setRadioValue] = useState('');
+  const [rangeSlider, setRangeSlider] = useState([20, 37]);
+  const [dlp, setDlp] = useState('');
+
+  const handleChange = (event, newValue) => {
+    setRangeSlider(newValue);
+  };
 
   const handleOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -29,8 +40,10 @@ const FilterPopover = () => {
     setAnchorEl(null);
   };
 
+
   const handleDeviceStatusChange = (event) => {
     setDeviceStatus(event.target.value);
+    setDlp(event.target.value);
   };
 
   const handleRadioChange = (event) => {
@@ -48,12 +61,15 @@ const FilterPopover = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? 'filter-popover' : undefined;
+  
 
   return (
-    <Container>
+    <div style={{display:'flex', width:'10px'}}>
+      <Container>
       <IconButton onClick={handleOpen}>
         <FilterListIcon />
       </IconButton>
+    
       <Popover
         id={id}
         open={open}
@@ -74,18 +90,24 @@ const FilterPopover = () => {
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography>Filter By</Typography>
+              <Typography>Filter By </Typography>
+              <Divider/>
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
                 <TextField select value={deviceStatus} onChange={handleDeviceStatusChange}>
                   <MenuItem value="deviceStatus">Device Status</MenuItem>
-                  <MenuItem value="randomVal1">Value 1</MenuItem>
+                  <MenuItem value="dlp">DLP</MenuItem>
                   <MenuItem value="randomVal2">Value 2</MenuItem>
                 </TextField>
               </FormControl>
             </Grid>
-            {deviceStatus && (
+            {dlp === "dlp" && (
+              <Grid item xs={12}>
+                <MenuItem value="rangeSlider"><RangeSlider handleChange={handleChange} rangeSlider={rangeSlider} /></MenuItem>
+              </Grid>
+            )}
+            {deviceStatus === "deviceStatus" && (
               <Grid item xs={12}>
                 <FormControl fullWidth>
                   <RadioGroup value={radioValue} onChange={handleRadioChange}>
@@ -117,6 +139,10 @@ const FilterPopover = () => {
         </Container>
       </Popover>
     </Container>
+    <Container>
+        <StackIconPopover />
+    </Container>
+    </div>
   );
 };
 

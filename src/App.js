@@ -20,7 +20,7 @@ useEffect(() => {
 console.log("students::",students)
   return (
     <div>
-      Table by fetching data from services but api is not given now so you can update your api on services 
+      {/* Table by fetching data from services but api is not given now so you can update your api on services  */}
       <div className="table">
         {students?.map((data, index) => {
           return (
