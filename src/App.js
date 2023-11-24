@@ -3,6 +3,7 @@ import "./App.css";
 import DataGridComponent from "./components/DataGridComponent";
 import getApi from "./services";
 import SingleSelectableCheckbox from "./components/Checkbox";
+import FilterPopover from "./components/Modal";
 
 
 export default function App() {
@@ -19,7 +20,7 @@ useEffect(() => {
 console.log("students::",students)
   return (
     <div>
-      {/* Table by fetching data from services but api is not given now so you can update your api on services  */}
+      Table by fetching data from services but api is not given now so you can update your api on services 
       <div className="table">
         {students?.map((data, index) => {
           return (
@@ -36,6 +37,8 @@ console.log("students::",students)
       <DataGridComponent/>
       <h4>Practice for single SingleSelectableCheckbox</h4>
       <SingleSelectableCheckbox/>
+      <h4>MUI popover and dropdown practice</h4>
+      <FilterPopover/>
     </div>
   );
 }

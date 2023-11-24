@@ -7,21 +7,21 @@ const columns = [
   {
     field: "serialNumber",
     headerName: "Serial Number",
-    // width: 300,
+    width: 300,
     editable: true,
     tooltipMessage:"Serial Number"
   },
   {
     field: "needsAttention",
     headerName: "Needs Attention",
-    // width: 300,
+    width: 300,
     editable: true,
     tooltipMessage:"Needs Attention"
   },
   {
     field: "connectedBN",
     headerName: "Connected BN",
-    // width: 300,
+    width: 300,
     editable: true,
     tooltipMessage:"Connection BN"
   }
@@ -71,7 +71,7 @@ const HeaderWithButton = ({ column }) => (
 
 export default function DataGridComponent() {
   return (
-        <div className="testC" style={{ height: 400, width: "50%" , margin:"0 auto"}}>
+        <div className="testC" style={{ height: 400, width: "100%"}}>
         <DataGrid
             style={{ border: "1px solid black" }}
             rows={rows}
