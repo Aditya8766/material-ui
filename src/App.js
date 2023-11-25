@@ -4,6 +4,7 @@ import DataGridComponent from "./components/DataGridComponent";
 import getApi from "./services";
 import SingleSelectableCheckbox from "./components/Checkbox";
 import FilterPopover from "./components/Modal";
+import { DateTimePopover } from "./components/DateTimePopover";
 
 
 export default function App() {
@@ -39,6 +40,8 @@ console.log("students::",students)
       <SingleSelectableCheckbox/>
       <h4>MUI popover and dropdown practice</h4>
       <FilterPopover/>
+    <DateTimePopover/>
+      
     </div>
   );
 }
